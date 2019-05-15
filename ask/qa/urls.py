@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.urls import path
+from qa.views import test
 
 urlpatterns = [
-    path('admin/', include('qa.urls')),
-    path('login/', include('qa.urls')),
-    path('signup/', include('qa.urls')),
-    path('question/', include('qa.urls')),
-    path('ask/', include('qa.urls')),
-    path('popular/', include('qa.urls')),
-    path('new/', include('qa.urls')),
+    path('admin/', views.test, name='admin'),
+    path('login/', views.test, name='login'),
+    path('signup/', views.test, name='signup'),
+    path('question/<int:id>/', views.test, name='question'),
+    path('ask/', views.test, name='ask'),
+    path('popular/', views.test, name='popular'),
+    path('new/', views.test, name='new'),
 ]
