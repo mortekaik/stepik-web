@@ -1,13 +1,12 @@
-from django.contrib import admin
-from django.urls import path
-from qa.views import test
+from django.conf.urls import url, include
+from . import views
 
 urlpatterns = [
-    path('admin/', views.test, name='admin'),
-    path('login/', views.test, name='login'),
-    path('signup/', views.test, name='signup'),
-    path('question/<int:id>/', views.test, name='question'),
-    path('ask/', views.test, name='ask'),
-    path('popular/', views.test, name='popular'),
-    path('new/', views.test, name='new'),
+	url(r'^$', views.test, name='index'),
+	url(r'^login/.*$', views.test, name='login'),
+	url(r'^signup/.*$', views.test, name='signup'),
+	url(r'^question/(?P<question_id>[0-9]+)/$', views.test, name='question'),
+	url(r'^ask/.*$', views.test, name='ask'),
+	url(r'^popular/.*$', views.test, name='popular'),
+	url(r'^new/.*$', views.test),
 ]
